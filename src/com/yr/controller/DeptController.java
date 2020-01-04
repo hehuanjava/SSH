@@ -24,7 +24,7 @@ private  DeptService deptService;
 private  List<Dept>deptList;
 
 /**
- * ĞÂÔö,Ìø×ªµ½ĞÂÔöÒ³ÃæÊ¹ÓÃ
+ * æ–°å¢,è·³è½¬åˆ°æ–°å¢é¡µé¢ä½¿ç”¨
  * @param dept
  * @param map
  * @return
@@ -33,7 +33,7 @@ private  List<Dept>deptList;
 public String insertdept( Map<String, Object> map) {	
 	map.put("dept", new Dept());
 	/**
-	 * mapÖĞµÄÖµÌø×ªÒ³ÃæÊÇ²»ÄÜÓÃ×ªÏòÀ´Ìø×ª :Ö»ÄÜÓÃ×ª·¢µÄ.forward ºÍ µ±Ç°µÄjspÒ³Ãæ*/
+	 * mapä¸­çš„å€¼è·³è½¬é¡µé¢æ˜¯ä¸èƒ½ç”¨è½¬å‘æ¥è·³è½¬ :åªèƒ½ç”¨è½¬å‘çš„.forward å’Œ å½“å‰çš„jspé¡µé¢*/
 	return "insertdept";	
 }
 
@@ -44,8 +44,8 @@ public  String insert(Dept dept,Map<String, Object> map) {
 }
 
 
-//²éÑ¯Êı¾İ
-	@ResponseBody // ±íÊ¾·µ»Øjson¸ñÊ½µÄÊı¾İ
+//æŸ¥è¯¢æ•°æ®
+	@ResponseBody // è¡¨ç¤ºè¿”å›jsonæ ¼å¼çš„æ•°æ®
 	@RequestMapping("/querydept")
 	public List<Dept> Querylist() {
 		deptList =deptService.querylist();
@@ -58,7 +58,7 @@ public  String insert(Dept dept,Map<String, Object> map) {
 	}
 	
 	
-	//»ØÏÔĞŞ¸Ä
+	//å›æ˜¾ä¿®æ”¹
 	@RequestMapping(value="/isnertdept{id}",method = RequestMethod.GET)
 	public String input(@PathVariable("id") Integer id, Map<String,Object>map) {
 		map.put("dept", deptService.queryid(id));
@@ -72,21 +72,25 @@ public  String insert(Dept dept,Map<String, Object> map) {
 	}
 	
 	/**
-	 * É¾³ı
+	 * åˆ é™¤
 	 * 
 	 */
 	
 	@RequestMapping(value = "/empp/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Emp> delete(@PathVariable("id") Integer id, Emp emp, Map<String, Object> map) {
-		return deptService.queryemp(id);// ²éÑ¯¸ù¾İ°à¼¶id²éÑ¯ È¥Ñ§Éú±íÊÇ·ñÓĞÑ§Éú È»ºó·µ»Øµ½Ò³ÃæÅĞ¶Ï
+		return deptService.queryemp(id);// æŸ¥è¯¢æ ¹æ®ç­çº§idæŸ¥è¯¢ å»å­¦ç”Ÿè¡¨æ˜¯å¦æœ‰å­¦ç”Ÿ ç„¶åè¿”å›åˆ°é¡µé¢åˆ¤æ–­
 	}
 
 	@RequestMapping(value = "/empp/{id}", method = RequestMethod.DELETE)
 	public String delete(@PathVariable("id") Integer id) {
 		deptService.delete(id);
-		System.out.println("É¾³ı³É¹¦");
+		System.out.println("åˆ é™¤æˆåŠŸ");
 		return "redirect:/fuck";
 	}
+	
+	 public void add(){
+	 
+	 }	
 	
 }
