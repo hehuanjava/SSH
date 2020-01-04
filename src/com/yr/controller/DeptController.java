@@ -89,8 +89,5 @@ public  String insert(Dept dept,Map<String, Object> map) {
 		return "redirect:/fuck";
 	}
 	
-	 public void add(){
-	 
-	 }	
 	
 }
