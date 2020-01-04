@@ -18,16 +18,16 @@ public class Empdao {
 	private SessionFactory sessionFactory;
 
 	/**
-	 * »ñÈ¡ºÍµ±Ç°Ïß³Ì°ó¶¨µÄSession
+	 * è·å–å’Œå½“å‰çº¿ç¨‹ç»‘å®šçš„Session
 	 * 
 	 * @return
 	 */
 	private Session getSession() {
-		// return sessionFactory.openSession();// ´Ë·½·¨µÃµ½Session»áÓĞÁ¬½Ó³Ø±¥ºÍÎÊÌâ
-		return sessionFactory.getCurrentSession();// ÍÆ¼öÊ¹ÓÃ´Ë·½·¨
+		// return sessionFactory.openSession();// æ­¤æ–¹æ³•å¾—åˆ°Sessionä¼šæœ‰è¿æ¥æ± é¥±å’Œé—®é¢˜
+		return sessionFactory.getCurrentSession();// æ¨èä½¿ç”¨æ­¤æ–¹æ³•
 	}
 	
-	//²éÑ¯È«²¿Ô±¹¤
+	//æŸ¥è¯¢å…¨éƒ¨å‘˜å·¥
 	public List<Emp> queyrlist(){
 		session = getSession();
 		String hql = "from Emp";
@@ -43,7 +43,7 @@ public class Empdao {
 	
 	/**
 	 * 
-	 * Ìí¼Ó
+	 * æ·»åŠ 
 	 * @return
 	 */
 	public  void insert(Emp emp) {
@@ -52,7 +52,7 @@ public class Empdao {
 	}
 	/**
 	 * 
-	 * ĞŞ¸Ä
+	 * ä¿®æ”¹
 	 * @param emp
 	 */
 	public void update(Emp emp) {
@@ -63,7 +63,7 @@ public class Empdao {
 	
 	/**
 	 * 
-	 * ĞŞ¸Ä²éÑ¯id
+	 * ä¿®æ”¹æŸ¥è¯¢id
 	 * 
 	 */
 	
@@ -76,7 +76,7 @@ public class Empdao {
 	}
 	
 	/**
-	 * ¸ù¾İid ²éÑ¯²¿ÃÅÃû³Æ
+	 * æ ¹æ®id æŸ¥è¯¢éƒ¨é—¨åç§°
 	 * 
 	 */
 	
@@ -102,7 +102,7 @@ public class Empdao {
 	
 	
 	/**
-	 * 	//²éÑ¯È«²¿²¿ÃÅ
+	 * 	//æŸ¥è¯¢å…¨éƒ¨éƒ¨é—¨
 	 * @return
 	 */
 	public List<Dept> querylist1(){
@@ -117,7 +117,7 @@ public class Empdao {
 		}
 	
 	
-	// ¸ù¾İÔ±¹¤id²éÑ¯²¿ÃÅ
+	// æ ¹æ®å‘˜å·¥idæŸ¥è¯¢éƒ¨é—¨
 		public int queryiddd(int id) {
 			session = getSession();
 			Emp emp = session.load(Emp.class, id);
@@ -126,7 +126,7 @@ public class Empdao {
 		
 		/**
 		 * 
-		 * É¾³ı
+		 * åˆ é™¤
 		 * @param id
 		 */
 		public void delete(int id) {
@@ -136,7 +136,17 @@ public class Empdao {
 			
 			
 		}
+		/**
+		 * 
+		 * æµ‹è¯•
+		 * @param id
+		 */
 	
+		public void deletett(int id) {
+			session = getSession();
+			Emp emp = session.load(Emp.class, id);
+			session.delete(emp);	
+		}
 	
 
 }
